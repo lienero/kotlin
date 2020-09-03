@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 텍스트 크기는 sp를 사용합니다 -->
+    <dimen name="text_dimen">24sp</dimen>
+    <!-- 일반적인 크기는 dp를 사용합니다 -->
+    <dimen name="size_dimen">24dp</dimen>
+
+</resources>

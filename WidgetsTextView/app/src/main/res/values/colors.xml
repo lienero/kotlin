@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <!-- 새로 추가 -->
+    <!-- 컬러를 태그로 생성하면 태그 앞에 해당 컬러가 네모 아이콘으로 표시됩니다.-->
+    <color name="color_blue">#0000FF</color>
+    <color name="color_red">#FF0000</color>
+</resources>
