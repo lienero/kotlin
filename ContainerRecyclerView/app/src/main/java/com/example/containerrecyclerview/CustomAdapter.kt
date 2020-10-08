@@ -3,6 +3,7 @@ package com.example.containerrecyclerview
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_recycler.view.*
 import java.text.SimpleDateFormat
@@ -41,6 +42,15 @@ class CustomAdapter : RecyclerView.Adapter<Holder>(){
 //itemView를 ViewHolder의 생성자에 전달한다.
 // 모든 레이아웃은 코드로 변환되는 순간 View가 된다
 class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
+
+    init {
+        itemView.setOnClickListener {
+            Toast.makeText(
+                itemView?.context, "클릭된 아이템 = ${itemView.textTitle.text}",
+                Toast.LENGTH_LONG).show()
+        }
+    }
+
     fun setMemo(memo: Memo) {
         itemView.textNo.text = "${memo.no}"
         itemView.textTitle.text = memo.title
@@ -49,5 +59,4 @@ class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var formattedDate = sdf.format(memo.timestamp)
         itemView.textDate.text = formattedDate
     }
-
 }
