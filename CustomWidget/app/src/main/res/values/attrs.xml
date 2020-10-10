@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- nmae = "커스텀 속성을 적용할 타입(클래스)이름-->
+    <declare-styleable name="CustomText">
+        <!-- <attr name="속성 이름" format="속성값의 형태(string 또는 reference"/>  -->
+        <attr name="delimeter" format="string"/>
+    </declare-styleable>
+</resources>
