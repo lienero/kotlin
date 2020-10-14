@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Permission</string>
+    <string name="btnCamera">카메라</string>
+    <string name="textView">위험 권한</string>
+</resources>
