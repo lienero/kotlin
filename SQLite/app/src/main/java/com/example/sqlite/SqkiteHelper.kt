@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper
 class SqliteHelper(context: Context, name: String, version: Int) : SQLiteOpenHelper(context, name, null, version) {
     override fun onCreate(db: SQLiteDatabase?) {
        val create = "create table memo (" +
-               "np integer primary key," +
-               "context text," +
+               "no integer primary key," +
+               "content text," +
                "datetime integer" +
                ")"
         // 테이블 생성 쿼리 문자를 문자열로 입력한 후 db의 execSQL() 메서드에 전달해서 실행합니다.
