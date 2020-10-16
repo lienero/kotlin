@@ -11,8 +11,8 @@ import com.example.sqlite.databinding.ItemRecyclerBinding
 import java.text.SimpleDateFormat
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.Holder>() {
-    var helper: SqliteHelper? = null
-    var listData = mutableListOf<Memo>()
+    var helper: RoomHelper? = null
+    var listData = mutableListOf<RoomMemo>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_recycler, parent, false)
@@ -24,35 +24,35 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.Holder>() {
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        val memo = listData.get(position)
-        holder.setMemo(memo)
+        val RoomMemo = listData.get(position)
+        holder.setRoomMemo(RoomMemo)
 
     }
 
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private lateinit var itembinding: ItemRecyclerBinding
-        var mMemo : Memo? = null
+        var mRoomMemo : RoomMemo? = null
 
         init {
             itembinding = ItemRecyclerBinding.bind(itemView)
             itembinding.buttonDelete.setOnClickListener {
-                //deleteMemo()는 null을 허용하지 않는데 mMemo는 null을 허용하도록 설정되었기 떄문에 !!를 사용해서 강제해야합니다.
-                helper?.deleteMemo(mMemo!!)
-                listData.remove(mMemo)
+                //deleteRoomMemo()는 null을 허용하지 않는데 mRoomMemo는 null을 허용하도록 설정되었기 떄문에 !!를 사용해서 강제해야합니다.
+                helper?.roomMemoDao()?.delete(mRoomMemo!!)
+                listData.remove(mRoomMemo)
                 notifyDataSetChanged()
             }
         }
 
-        fun setMemo(memo: Memo) {
+        fun setRoomMemo(RoomMemo: RoomMemo) {
             itembinding = ItemRecyclerBinding.bind(itemView)
-            itembinding.textNo.text = "${memo.no}"
-            itembinding.textContent.text = memo.content
+            itembinding.textNo.text = "${RoomMemo.no}"
+            itembinding.textContent.text = RoomMemo.content
             // 날짜 포맷은 SimplgeDateFormat
             val sdf = SimpleDateFormat("yyyy/MM/dd hh:mm")
-            itembinding.textDatetime.text = "${sdf.format(memo.datetime)}"
-            // setMemo 메서드로 넘어온 Memo를 임시로 저장합니다.
-            this.mMemo = memo
+            itembinding.textDatetime.text = "${sdf.format(RoomMemo.datetime)}"
+            // setRoomMemo 메서드로 넘어온 RoomMemo를 임시로 저장합니다.
+            this.mRoomMemo = RoomMemo
         }
 
     }
