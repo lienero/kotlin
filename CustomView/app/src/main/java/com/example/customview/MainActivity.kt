@@ -34,4 +34,4 @@ class CustomView(text: String, context: Context) : View(context){
         paint.textSize = 100f
         canvas?.drawText(text,100f,300f,paint)
     }
-}
+}`
